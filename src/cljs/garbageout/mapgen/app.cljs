@@ -25,9 +25,10 @@
 (defn svg-plot [objects owner]
   (om/component
    (dom/section nil
-     (apply dom/svg #js {:width 500 :height 500}
+     (dom/svg #js {:width 500 :height 500}
        (dom/rect #js {:x 0 :y 0 :width 500 :height 500 :fill "silver"})
-       (map render/svg objects)))))
+       (apply dom/g #js {:transform "scale(500,-500) translate(0, -1)"}
+         (map render/svg objects))))))
 
 (defn object-list [objects owner]
   (om/component
@@ -47,4 +48,4 @@
   app-state
   {:target (. js/document (getElementById "app"))})
 
-(swap! app-state assoc :objects-to-render (vec (take 5 (repeatedly random-triangle))))
+(swap! app-state assoc :objects-to-render (vec (take 3 (repeatedly random-triangle))))

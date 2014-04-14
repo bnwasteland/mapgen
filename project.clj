@@ -6,6 +6,7 @@
 
   :source-paths ["src/clj" "src/cljs"]
   :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/clojurescript "0.0-2197"]
                  [org.clojure/core.async "0.1.278.0-76b25b-alpha"]
                  [javax.servlet/servlet-api "2.5"]
                  [compojure "1.1.6"]
@@ -20,4 +21,5 @@
               :compiler {:output-to "resources/public/js/mapgen.js"
                          :output-dir "resources/public/js/out"
                          :optimizations :none
-                         :source-map true}}]})
+                         ;:source-map true
+                         :pretty-print true}}]})

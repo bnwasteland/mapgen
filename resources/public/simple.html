@@ -3,6 +3,10 @@
 <head>
     <meta charset='utf-8'>
     <title>Simple CLJS</title>
+    <style>
+        svg line { vector-effect:non-scaling-stroke }
+        svg circle { vector-effect:non-scaling-stroke }
+    </style>
 </head>
 <body>
     <div id='app'/>
@@ -11,6 +15,5 @@
     <!-- pointing to cljsbuild generated js file -->
     <script src='js/mapgen.js'></script>
     <script type='text/javascript'>goog.require('garbageout.mapgen.app');</script>
-    <script type='text/javascript' id='lt_ws' src='http://localhost:58195/socket.io/lighttable/ws.js'></script>
 </body>
 </html>

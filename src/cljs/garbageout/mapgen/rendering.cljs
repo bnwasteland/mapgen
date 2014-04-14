@@ -30,8 +30,8 @@
       (str "(" (:x point) ", " (:y point) ")"))
   SVGRenderable
     (render-svg [point]
-      (dom/circle #js {:cx (* (:x point) 500)
-                       :cy (* (- 1.0 (:y point)) 500)
+      (dom/circle #js {:cx (:x point)
+                       :cy (:y point)
                        :r 2
                        :fill "blue"})))
 
@@ -41,15 +41,15 @@
       (str "circle [" (render-text (:center c)) ", radius " (:radius c) "]"))
   SVGRenderable
     (render-svg [c]
-      (dom/circle #js {:cx (* (get-in c [:center :x]) 500)
-                       :cy (* (- 1.0 (get-in c [:center :y])) 500)
-                       :r  (* (:radius c) 500)
+      (dom/circle #js {:cx (get-in c [:center :x])
+                       :cy (get-in c [:center :y])
+                       :r  (:radius c)
                        :fill "transparent"
                        :stroke "black"})))
 
 (defn render-edge [[A B]]
-  (dom/line #js {:x1 (* (:x A) 500) :y1 (* (- 1.0 (:y A)) 500)
-                 :x2 (* (:x B) 500) :y2 (* (- 1.0 (:y B)) 500)
+  (dom/line #js {:x1 (:x A) :y1 (:y A)
+                 :x2 (:x B) :y2 (:y B)
                  :stroke "green"
                  :strokeWidth 2}))
 
